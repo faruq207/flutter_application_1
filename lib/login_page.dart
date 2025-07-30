@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 20),
 
-            // Logo Munchen
+         
             Center(
               child: Container(
                 margin: const EdgeInsets.all(10),
@@ -50,7 +50,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 20),
 
-            // Username
             TextField(
               controller: _usernameController,
               decoration: const InputDecoration(
@@ -60,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 12),
 
-            // Password
+           
             TextField(
               controller: _passwordController,
               obscureText: true,
@@ -71,13 +70,13 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 20),
 
-            // Login Button (Biru, Text Putih)
+            
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white, // Text jadi putih
+                  foregroundColor: Colors.white, 
                 ),
                 onPressed: () {
                   final username = _usernameController.text;
@@ -98,13 +97,13 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 10),
 
-            // Registrasi Button (Hijau, Text Putih)
+            
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
-                  foregroundColor: Colors.white, // Text jadi putih
+                  foregroundColor: Colors.white,
                 ),
                 onPressed: () {
                   Navigator.push(

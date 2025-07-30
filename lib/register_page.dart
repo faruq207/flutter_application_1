@@ -84,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               const SizedBox(height: 20),
 
-              // Tombol Daftar (Hijau + Text Putih)
+              
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
