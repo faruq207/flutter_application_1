@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/calculator_controller.dart';
+import 'package:get/get.dart';
 
 class CalculatorPage extends StatefulWidget {
-  const CalculatorPage({super.key});
+  CalculatorPage({super.key}); 
 
   @override
   State<CalculatorPage> createState() => _CalculatorPageState();
@@ -67,6 +68,17 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 foregroundColor: Colors.white,
               ),
               child: const Text("Clear"),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/football');
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+              ),
+              child: const Text("Football"),
             ),
           ],
         ),
