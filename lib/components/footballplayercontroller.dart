@@ -11,7 +11,7 @@ class FootballplayerController extends GetxController {
     ),
     FootballPlayer(
       name: "Joshua Kimmich",
-      position: "Midfielder",
+      position: "Midfielder", 
       number: 6,
       image: "assets/kimmich.png",
     ),
