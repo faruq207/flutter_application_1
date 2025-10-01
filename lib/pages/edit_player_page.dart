@@ -1,45 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../components/footballplayercontroller.dart';
-import '../model/footbalplayer_model.dart';
+import '../components/edit_player_controller.dart';
 
-class EditPlayerPage extends StatefulWidget {
-  final int index;
-  final FootballPlayer player;
+class EditPlayerPage extends StatelessWidget {
+  EditPlayerPage({super.key});
 
-  const EditPlayerPage({
-    super.key,
-    required this.index,
-    required this.player,
-  });
-
-  @override
-  State<EditPlayerPage> createState() => _EditPlayerPageState();
-}
-
-class _EditPlayerPageState extends State<EditPlayerPage> {
-  late TextEditingController nameController;
-  late TextEditingController positionController;
-  late TextEditingController numberController;
-
-  final controller = Get.find<FootballplayerController>();
-
-  @override
-  void initState() {
-    super.initState();
-    nameController = TextEditingController(text: widget.player.name);
-    positionController = TextEditingController(text: widget.player.position);
-    numberController =
-        TextEditingController(text: widget.player.number.toString());
-  }
-
-  @override
-  void dispose() {
-    nameController.dispose();
-    positionController.dispose();
-    numberController.dispose();
-    super.dispose();
-  }
+  final editController = Get.put(EditPlayerController());
 
   @override
   Widget build(BuildContext context) {
@@ -49,32 +15,29 @@ class _EditPlayerPageState extends State<EditPlayerPage> {
         padding: const EdgeInsets.all(16),
         children: [
           TextField(
-            controller: nameController,
+            controller: editController.nameController,
             decoration: const InputDecoration(labelText: "Name"),
           ),
           const SizedBox(height: 12),
           TextField(
-            controller: positionController,
+            controller: editController.positionController,
             decoration: const InputDecoration(labelText: "Position"),
           ),
           const SizedBox(height: 12),
           TextField(
-            controller: numberController,
+            controller: editController.numberController,
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(labelText: "Number"),
           ),
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-              final updated = FootballPlayer(
-                name: nameController.text,
-                position: positionController.text,
-                number: int.tryParse(numberController.text) ??
-                    widget.player.number,
-                image: widget.player.image,
+              final updatedPlayer = editController.getUpdatedPlayer();
+              editController.footballPlayerController.updatePlayer(
+                editController.index,
+                updatedPlayer,
               );
-              controller.updatePlayer(widget.index, updated);
-              Get.back(); // kembali ke list
+              Get.back();
             },
             child: const Text("Save"),
           ),

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/calculator_controller.dart';
 
-
-class CalculatorPage extends StatefulWidget {
-  CalculatorPage({super.key}); 
+class HomeFragment extends StatefulWidget {
+  const HomeFragment({super.key});
 
   @override
-  State<CalculatorPage> createState() => _CalculatorPageState();
+  State<HomeFragment> createState() => _HomeFragmentState();
 }
 
-class _CalculatorPageState extends State<CalculatorPage> {
+class _HomeFragmentState extends State<HomeFragment> {
   final CalculatorController controller = CalculatorController();
 
   Widget _buildTextField(String label, TextEditingController controller,
@@ -69,7 +68,6 @@ class _CalculatorPageState extends State<CalculatorPage> {
               ),
               child: const Text("Clear"),
             ),
-            const SizedBox(height: 10),
           ],
         ),
       ),

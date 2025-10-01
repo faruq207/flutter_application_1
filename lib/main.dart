@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/pages/main_page.dart';
 import 'package:get/get.dart';
-import 'package:flutter_application_1/components/footballplayercontroller.dart';
-
+import 'routes/pages.dart';
+import 'routes/routes.dart';
 
 void main() {
-  Get.put(FootballplayerController());
   runApp(const MyApp());
 }
 
@@ -21,7 +19,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
         useMaterial3: true,
       ),
-      home: MainPage(), // 🔥 langsung ke Bottom Nav
+      initialRoute: AppRoutes.contactpage, // ✅ arahkan ke ContactPage
+      getPages: AppPages.pages,
     );
   }
 }
