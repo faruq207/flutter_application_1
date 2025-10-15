@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/footballplayercontroller.dart';
+import 'package:flutter_application_1/controllers/footballplayercontroller.dart';
 import 'package:get/get.dart';
 import '../model/footbalplayer_model.dart';
 

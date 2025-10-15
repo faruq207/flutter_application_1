@@ -31,11 +31,32 @@ class DBHelper {
 
   Future<int> insertName(String name) async {
     final client = await db;
-    return client.insert('contacts', {'name': name});
+    return await client.insert('contacts', {'name': name});
   }
 
   Future<List<Map<String, dynamic>>> getNames() async {
     final client = await db;
-    return client.query('contacts', orderBy: 'id DESC');
+    return await client.query('contacts', orderBy: 'id DESC');
+  }
+
+  // 🔹 Update nama berdasarkan nama lama
+  Future<int> updateName(String oldName, String newName) async {
+    final client = await db;
+    return await client.update(
+      'contacts',
+      {'name': newName},
+      where: 'name = ?',
+      whereArgs: [oldName],
+    );
+  }
+
+  // 🔹 Hapus nama berdasarkan nama
+  Future<int> deleteName(String name) async {
+    final client = await db;
+    return await client.delete(
+      'contacts',
+      where: 'name = ?',
+      whereArgs: [name],
+    );
   }
 }

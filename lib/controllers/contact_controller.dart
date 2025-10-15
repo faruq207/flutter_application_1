@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Helper/dbHelper.dart';
 import 'package:get/get.dart';
+import 'package:flutter_application_1/Helper/dbHelper.dart';
 
 class ContactController extends GetxController {
   final TextEditingController nameController = TextEditingController();
@@ -23,7 +23,24 @@ class ContactController extends GetxController {
     if (text.isEmpty) return;
     await _dbHelper.insertName(text);
     nameController.clear();
-    fetchNames();
+    await fetchNames();
+  }
+
+  Future<void> updateName(int index, String newName) async {
+    if (index < 0 || index >= names.length) return;
+
+    final oldName = names[index];
+    await _dbHelper.updateName(oldName, newName);
+    await fetchNames(); // refresh UI dari DB
+  }
+
+  // Hapus nama berdasarkan index
+  Future<void> deleteName(int index) async {
+    if (index < 0 || index >= names.length) return;
+
+    final nameToDelete = names[index];
+    await _dbHelper.deleteName(nameToDelete);
+    await fetchNames();
   }
 
   @override

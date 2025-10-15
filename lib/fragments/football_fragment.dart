@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controllers/footballplayercontroller.dart';
 import 'package:get/get.dart';
-import '../components/footballplayercontroller.dart';
 import '../routes/routes.dart';
 
 class FootballFragment extends StatelessWidget {

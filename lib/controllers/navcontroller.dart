@@ -1,6 +1,8 @@
+import 'package:flutter_application_1/fragments/football_fragment.dart';
 import 'package:flutter_application_1/pages/Football_Player_page.dart';
-import 'package:flutter_application_1/pages/Profil_page.dart';
 import 'package:flutter_application_1/pages/calculator_page.dart';
+import 'package:flutter_application_1/pages/football_responsive.dart';
+import 'package:flutter_application_1/pages/profil_page.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,7 @@ class NavController extends GetxController {
   
   final List<Widget> pages = [
     CalculatorPage(),
-    FootballPlayerPage(),
+    FootballResponsive(),
     ProfilePage()];
 
   void changePage(int index) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/bindings/football_bindings.dart';
 import 'package:get/get.dart';
 import 'routes/pages.dart';
 import 'routes/routes.dart';
@@ -19,8 +20,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
         useMaterial3: true,
       ),
-      initialRoute: AppRoutes.contactpage, // ✅ arahkan ke ContactPage
+      initialRoute: AppRoutes.main, // ✅ arahkan ke ContactPage
       getPages: AppPages.pages,
+      initialBinding: FootballBindings(), // register global controllers
     );
   }
 }

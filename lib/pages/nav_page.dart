@@ -3,7 +3,6 @@ import 'package:flutter_application_1/controllers/navcontroller.dart';
 import 'package:get/get.dart';
 import 'Calculator.dart';
 import 'Football_Player_page.dart';
-import 'Profil_page.dart';
 
 class NavPage extends StatelessWidget {
   NavPage({super.key});
