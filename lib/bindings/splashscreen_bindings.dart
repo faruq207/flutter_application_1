@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controllers/splashscreen_controller.dart';
 import 'package:get/get.dart';
 
-class SplashscreenPage extends StatelessWidget {
-   SplashscreenPage({super.key});
+class SplashscreenBindings extends StatelessWidget {
+   SplashscreenBindings({super.key});
 
     final splashscreenController = Get.find<SplashscreenController>();
   @override

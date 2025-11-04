@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../controllers/login_controller.dart';
 import '../register_page.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  @override
   Widget build(BuildContext context) {
+    final controller = Get.find<LoginController>(); // dari binding otomatis
+
     return Scaffold(
       appBar: AppBar(title: const Text("Login Page")),
       body: Padding(
@@ -40,7 +36,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 20),
 
-         
             Center(
               child: Container(
                 margin: const EdgeInsets.all(10),
@@ -50,8 +45,9 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 20),
 
+            // Username Field
             TextField(
-              controller: _usernameController,
+              controller: controller.usernameController,
               decoration: const InputDecoration(
                 labelText: "Username",
                 border: OutlineInputBorder(),
@@ -59,9 +55,9 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 12),
 
-           
+            // Password Field
             TextField(
-              controller: _passwordController,
+              controller: controller.passwordController,
               obscureText: true,
               decoration: const InputDecoration(
                 labelText: "Password",
@@ -70,34 +66,23 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 20),
 
-            
+            // Tombol Login
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white, 
+                  foregroundColor: Colors.white,
                 ),
                 onPressed: () {
-                  final username = _usernameController.text;
-                  final password = _passwordController.text;
-
-                  if (username == "admin" && password == "1234") {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Login Berhasil")),
-                    );
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Login Gagal")),
-                    );
-                  }
+                  controller.login();
                 },
                 child: const Text("Login"),
               ),
             ),
             const SizedBox(height: 10),
 
-            
+            // Tombol Registrasi
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

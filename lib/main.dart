@@ -11,7 +11,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
@@ -20,7 +20,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
         useMaterial3: true,
       ),
+<<<<<<< HEAD
       initialRoute: AppRoutes.main, // ✅ arahkan ke ContactPage
+=======
+      initialRoute: AppRoutes.splashscreen_page,
+>>>>>>> 5c41d10 (nyimpan perubahan biar gak ilang)
       getPages: AppPages.pages,
       initialBinding: FootballBindings(), // register global controllers
     );

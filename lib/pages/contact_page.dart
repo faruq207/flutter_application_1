@@ -6,6 +6,7 @@ import 'package:flutter_application_1/components/input_with_button.dart';
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
 
+<<<<<<< HEAD
   void _showEditDialog(
       BuildContext context, ContactController controller, int index, String oldName) {
     final TextEditingController editController =
@@ -49,6 +50,42 @@ class ContactPage extends StatelessWidget {
           )
         ],
       ),
+=======
+  void _showEditDialog(BuildContext context, ContactController controller, int index, String oldName) {
+    final TextEditingController editController = TextEditingController(text: oldName);
+
+    showDialog(
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          title: const Text("Ubah Nama"),
+          content: TextField(
+            controller: editController,
+            decoration: const InputDecoration(
+              hintText: "Masukkan nama baru",
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Get.back(),
+              style: TextButton.styleFrom(foregroundColor: Colors.grey),
+              child: const Text("Batal"),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                String newName = editController.text.trim();
+                if (newName.isNotEmpty) {
+                  await controller.updateName(index, newName);
+                  Get.back();
+                }
+              },
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+              child: const Text("Simpan"),
+            ),
+          ],
+        );
+      },
+>>>>>>> 5c41d10 (nyimpan perubahan biar gak ilang)
     );
   }
 
@@ -72,6 +109,10 @@ class ContactPage extends StatelessWidget {
               onPressed: controller.addName,
             ),
             const SizedBox(height: 20),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5c41d10 (nyimpan perubahan biar gak ilang)
             Expanded(
               child: Obx(() {
                 if (controller.names.isEmpty) {
@@ -88,10 +129,15 @@ class ContactPage extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(
+<<<<<<< HEAD
                               icon:
                               const Icon(Icons.edit, color: Colors.orange),
                               onPressed: () =>
                                   _showEditDialog(context, controller, index, name),
+=======
+                              icon: const Icon(Icons.edit, color: Colors.blue),
+                              onPressed: () => _showEditDialog(context, controller, index, name),
+>>>>>>> 5c41d10 (nyimpan perubahan biar gak ilang)
                             ),
                             IconButton(
                               icon: const Icon(Icons.delete, color: Colors.red),

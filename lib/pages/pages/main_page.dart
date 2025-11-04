@@ -6,9 +6,11 @@ import 'package:flutter_application_1/fragments/football_fragment.dart';
 import 'package:flutter_application_1/fragments/profil_fragment.dart';
 
 class MainPage extends StatelessWidget {
+  MainPage({super.key});
+
   final BottomNavController controller = Get.put(BottomNavController());
 
-  final pages = const [
+  final List<Widget> pages = const [
     HomeFragment(),
     FootballFragment(),
     ProfilFragment(),
@@ -17,7 +19,10 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
-          body: pages[controller.selectedIndex.value],
+          body: IndexedStack(
+            index: controller.selectedIndex.value,
+            children: pages,
+          ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: controller.selectedIndex.value,
             onTap: controller.changePage,
