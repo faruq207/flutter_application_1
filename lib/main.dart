@@ -20,11 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
         useMaterial3: true,
       ),
-<<<<<<< HEAD
-      initialRoute: AppRoutes.main, // ✅ arahkan ke ContactPage
-=======
-      initialRoute: AppRoutes.splashscreen_page,
->>>>>>> 5c41d10 (nyimpan perubahan biar gak ilang)
+      initialRoute: AppRoutes.loginpage, // arahkan ke ContactPage (bisa diubah sesuai kebutuhan)
       getPages: AppPages.pages,
       initialBinding: FootballBindings(), // register global controllers
     );

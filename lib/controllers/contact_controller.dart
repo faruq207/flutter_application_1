@@ -43,14 +43,14 @@ class ContactController extends GetxController {
     await fetchNames();
   }
 
-  Future<void> deleteName(int index) async {
+  Future<void> deletename(int index) async {
     final nameToDelete = names[index];
     final db = await _dbHelper.db;
     await db.delete('contacts', where: 'name = ?', whereArgs: [nameToDelete]);
     names.removeAt(index);
   }
 
-  Future<void> updateName(int index, String newName) async {
+  Future<void> updatename(int index, String newName) async {
     final oldName = names[index];
     final db = await _dbHelper.db;
     await db.update(

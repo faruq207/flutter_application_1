@@ -1,17 +1,12 @@
-// ...existing code...
 import 'package:get/get.dart';
 import 'package:flutter_application_1/pages/splashscreen_page.dart';
-// Jika MainPage Anda berada di subfolder 'pages/pages', gunakan import ini:
 import 'package:flutter_application_1/pages/pages/main_page.dart';
-// Jika MainPage berada langsung di lib/pages, ganti ke:
-// import 'package:flutter_application_1/pages/main_page.dart';
-
 import 'package:flutter_application_1/pages/calculator_page.dart';
 import 'package:flutter_application_1/pages/football_player_page.dart';
 import 'package:flutter_application_1/pages/edit_player_page.dart';
 import 'package:flutter_application_1/pages/profil_page.dart';
 import 'package:flutter_application_1/pages/contact_page.dart';
-
+import 'package:flutter_application_1/pages/nav_page.dart'; // ✅ Tambahkan ini
 import 'routes.dart';
 
 class AppPages {
@@ -37,15 +32,16 @@ class AppPages {
       page: () => MainPage(),
     ),
     GetPage(
-      name: AppRoutes.contactpage,
+      name: AppRoutes.contact_page,
       page: () => ContactPage(),
-      // binding: ContactBinding(), // aktifkan jika binding tersedia
     ),
     GetPage(
       name: AppRoutes.splashscreen_page,
       page: () => SplashScreenPage(),
-      // binding: SplashscreenBindings(), // aktifkan jika binding tersedia
+    ),
+    GetPage(
+      name: AppRoutes.navpage,
+      page: () => NavPage(), // ✅ Tambahkan ini
     ),
   ];
 }
-// ...existing code...
